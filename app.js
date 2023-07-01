@@ -1,14 +1,14 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
-// getContext() method會回傳一個canvas的drawing context，
-// drawing context可以用來在canvas內畫圖
+// getContext() method会传回一个canvas的drawing context，
+// drawing context可以用来在canvas内画图
 const unit = 20;
 const row = canvas.height / unit; // 320 / 20 = 16
 const column = canvas.width / unit; // 320 / 20 = 16
 
-let snake = []; // array中的每個元素，都是一個物件
+let snake = []; // array中的每个元素，都是一个对象
 function createSnake() {
-  // 物件的工作是，儲存身體的x, y座標
+  // 对象的工作是，储存身体的x, y坐标
   snake[0] = {
     x: 80,
     y: 0,
@@ -69,7 +69,7 @@ class Fruit {
   }
 }
 
-// 初始設定
+// 初始设定
 createSnake();
 let myFruit = new Fruit();
 window.addEventListener("keydown", changeDirection);
@@ -85,9 +85,9 @@ function changeDirection(e) {
     d = "Up";
   }
 
-  // 每次按下上下左右鍵之後，在下一幀被畫出來之前，
+  // 每次按下上下左右鍵之后，在下一帧被画出來之前，
   // 不接受任何keydown事件
-  // 這樣可以防止連續按鍵導致蛇在邏輯上自殺
+  // 这样可以防止连续按鍵导致蛇在逻辑上自杀
   window.removeEventListener("keydown", changeDirection);
 }
 let highestScore;
